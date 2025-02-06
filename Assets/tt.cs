@@ -10,6 +10,7 @@ public class tt : MonoBehaviour
         print("11");
         print("22");
         print("22");
+        print("22");
     }
 
     // Update is called once per frame
