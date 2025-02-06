@@ -8,6 +8,7 @@ public class tt : MonoBehaviour
     void Start()
     {
         print("11");
+        print("22");
     }
 
     // Update is called once per frame
