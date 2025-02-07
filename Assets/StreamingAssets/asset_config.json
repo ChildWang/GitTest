@@ -1,0 +1,19 @@
+{
+    "assets": [
+        {
+            "assetBundleName": "Assets/Prefabs/Cube.prefab",
+            "assetName": "Cube",
+            "priority": 0
+        },
+        {
+            "assetBundleName": "Assets/Prefabs/Sphere.prefab",
+            "assetName": "Sphere",
+            "priority": 2
+        },
+        {
+            "assetBundleName": "Assets/Prefabs/Capsule.prefab",
+            "assetName": "Capsule",
+            "priority": 1
+        }
+    ]
+}
