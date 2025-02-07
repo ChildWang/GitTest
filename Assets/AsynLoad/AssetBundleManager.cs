@@ -77,19 +77,14 @@ public class AssetBundleManager : MonoBehaviour
                     Debug.LogError($"Config file {urlOrPath} not found.");
                 }
             }
-          /*  // 其他平台从文件加载
-            if (File.Exists(urlOrPath))
-            {
-                string json = File.ReadAllText(urlOrPath);
-                jsonConfig = JsonUtility.FromJson<AssetConfig>(json);
-            }*/
 
             soConfig = Resources.Load<AssetConfigSO>("AssetConfigSO");
             if (soConfig != null)
             {
-#if UNITY_EDITOR_WIN
+#if UNITY_EDITOR_WIN                
                 if (!File.Exists(urlOrPath))
                 {
+        
                     // Convert ScriptableObject config to JSON and save it
                     jsonConfig = new AssetConfig { assets = soConfig.assets };
                     string jsonContent = JsonUtility.ToJson(jsonConfig, true);
@@ -136,65 +131,6 @@ public class AssetBundleManager : MonoBehaviour
         yield return null;
        // 触发配置加载完成事件
        OnConfigLoaded?.Invoke();
-    }
-
-    public void LoadIOConfig(string urlOrPath, DataSource source)
-    {
-        AssetConfig jsonConfig = null;
-        AssetConfigSO soConfig = null;
-        if (source == DataSource.JSON)
-        {
-            soConfig = Resources.Load<AssetConfigSO>("AssetConfigSO");
-            if (soConfig != null)
-            {
-#if UNITY_EDITOR_WIN
-                if (!File.Exists(urlOrPath))
-                {
-                    // Convert ScriptableObject config to JSON and save it
-                    jsonConfig = new AssetConfig { assets = soConfig.assets };
-                    string jsonContent = JsonUtility.ToJson(jsonConfig, true);
-                    File.WriteAllText(urlOrPath, jsonContent);
-                }
-#endif
-                if (!IsConfigsEqual(jsonConfig.assets, soConfig.assets))
-                {
-                    UpdateScriptableObjectConfig(soConfig, jsonConfig.assets);
-                }
-            }
-            else
-            {
-#if UNITY_EDITOR_WIN
-                soConfig = ScriptableObject.CreateInstance<AssetConfigSO>();
-                soConfig.assets = jsonConfig.assets;
-                AssetDatabase.CreateAsset(soConfig, "Assets/Resources/AssetConfigSO.asset");
-                AssetDatabase.SaveAssets();
-#endif
-            }
-
-            foreach (var info in jsonConfig.assets)
-            {
-                AddToQueue(info);
-            }
-        }
-        else if (source == DataSource.ScriptableObject)
-        {
-            string soConfigname = Path.GetFileNameWithoutExtension(urlOrPath);
-            Debug.Log(soConfigname);
-            soConfig = Resources.Load<AssetConfigSO>("AssetConfigSO");
-            if (soConfig != null)
-            {
-                foreach (var info in soConfig.assets)
-                {
-                    AddToQueue(info);
-                }
-            }
-            else
-            {
-                Debug.LogError($"ScriptableObject {urlOrPath} not found.");
-            }
-        }
-        // 触发配置加载完成事件
-        OnConfigLoaded?.Invoke();
     }
 
     // 对比两个配置列表是否一致

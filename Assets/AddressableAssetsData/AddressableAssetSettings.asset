@@ -17,7 +17,7 @@ MonoBehaviour:
     serializedVersion: 2
     Hash: 00000000000000000000000000000000
   m_OptimizeCatalogSize: 0
-  m_BuildRemoteCatalog: 0
+  m_BuildRemoteCatalog: 1
   m_BundleLocalCatalog: 0
   m_CatalogRequestsTimeout: 0
   m_DisableCatalogUpdateOnStart: 0
@@ -34,15 +34,16 @@ MonoBehaviour:
   m_MonoScriptBundleNaming: 0
   m_MonoScriptBundleCustomNaming: 
   m_RemoteCatalogBuildPath:
-    m_Id: 
+    m_Id: 57a075356ddd66746b66b4fb70b39e1f
   m_RemoteCatalogLoadPath:
-    m_Id: 
+    m_Id: 9a5e90a55ecbe0c49ac680253e8f884f
   m_ContentStateBuildPath: 
   m_BuildAddressablesWithPlayerBuild: 0
   m_overridePlayerVersion: 
   m_GroupAssets:
   - {fileID: 11400000, guid: 734be2ee6f9e20047b6f59fa82377df3, type: 2}
   - {fileID: 11400000, guid: f3dd5cdcb26ff994e9935a64d9d7e404, type: 2}
+  - {fileID: 11400000, guid: 9b8e88088f5167d499719e8b2f2491ea, type: 2}
   m_BuildSettings:
     m_CompileScriptsInVirtualMode: 0
     m_CleanupStreamingAssetsAfterBuilds: 1
@@ -63,7 +64,7 @@ MonoBehaviour:
       - m_Id: 57a075356ddd66746b66b4fb70b39e1f
         m_Value: ServerData/[BuildTarget]
       - m_Id: 9a5e90a55ecbe0c49ac680253e8f884f
-        m_Value: http://[PrivateIpAddress]:[HostingServicePort]
+        m_Value: http://192.168.1.2:8000
     m_ProfileEntryNames:
     - m_Id: 40d38d60a60eb25419d4041ac91ed2ed
       m_Name: BuildTarget
