@@ -183,7 +183,12 @@ public class AssetBundleManager : MonoBehaviour
         
         foreach (var info in assetQueue)
         {
-            AsyncOperationHandle<GameObject> assetRequest = Addressables.LoadAssetAsync<GameObject>(info.assetBundleName);
+            string key = info.assetBundleName;
+/*#if UNITY_EDITOR
+            // 在编辑器中使用与编辑器兼容的 AssetBundle
+            key = info.assetBundleName + "_editor";
+#endif*/
+            AsyncOperationHandle<GameObject> assetRequest = Addressables.LoadAssetAsync<GameObject>(key);
             while (!assetRequest.IsDone)
             {
                 // 触发更新事件
