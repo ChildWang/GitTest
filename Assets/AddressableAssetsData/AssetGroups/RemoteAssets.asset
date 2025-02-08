@@ -29,6 +29,10 @@ MonoBehaviour:
     m_Address: Assets/Prefabs/Sphere.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: 95ba7997623a2454aacf7282ca5897ac
+    m_Address: Assets/Prefabs/Cylinder.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: d88c266a1e2e20f44b924e5206977f1d, type: 2}
   m_SchemaSet:

@@ -22,3 +22,6 @@ MonoBehaviour:
   - assetBundleName: Assets/Prefabs/Capsule.prefab
     assetName: Capsule
     priority: 1
+  - assetBundleName: Assets/Prefabs/Cylinder.prefab
+    assetName: Cylinder
+    priority: 4
